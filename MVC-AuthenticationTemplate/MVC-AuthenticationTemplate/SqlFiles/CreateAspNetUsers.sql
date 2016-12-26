@@ -1,7 +1,6 @@
-USE [DevBlink]
+USE [YourDBName]
 GO
-
-/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 12/26/2016 10:17:34 AM ******/
+ 
 SET ANSI_NULLS ON
 GO
 
@@ -28,5 +27,3 @@ CREATE TABLE [dbo].[AspNetUsers](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-
-
