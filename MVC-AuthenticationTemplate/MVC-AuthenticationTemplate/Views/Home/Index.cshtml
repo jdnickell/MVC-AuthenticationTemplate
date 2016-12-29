@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Home";
+}
+
+<div>
+    <h1>MVC Authentication Template</h1>
+
+    @Html.ActionLink("Register", "Register", "Account")
+    <br/>
+    @Html.ActionLink("Login", "Login", "Account")
+    <br />
+    @Html.ActionLink("Forgot Password", "ForgotPassword","Account")
+    <br/>
+    @if (Request.IsAuthenticated)
+    {
+        @Html.ActionLink("Manage account for: " + User.Identity.GetUserName(), "Index", "Manage", null, new { title = "Manage" })
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        }
+    }
+</div>

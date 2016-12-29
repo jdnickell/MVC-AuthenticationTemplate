@@ -1,0 +1,48 @@
+﻿@model MVC_AuthenticationTemplate.Models.EditUserViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit.</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <div>
+        <h4>Edit User Form.</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div>
+            @Html.LabelFor(model => model.Email)
+            <div>
+               @Html.TextBoxFor(m => m.Email)
+               @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+        <div>
+            @Html.Label("Roles")
+            <span>
+                @foreach (var item in Model.RolesList)
+                {
+                    <input type="checkbox" name="SelectedRole" value="@item.Value" checked="@item.Selected"  />
+                    @Html.Label(item.Value)
+                }
+            </span>
+        </div>
+
+        <div>
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+ 

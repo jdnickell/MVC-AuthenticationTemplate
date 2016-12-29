@@ -1,0 +1,25 @@
+﻿@model MVC_AuthenticationTemplate.Models.AddPhoneNumberViewModel
+@{
+    ViewBag.Title = "Add Phone Number";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("AddPhoneNumber", "Manage", FormMethod.Post, new { role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Add a phone number.</h4>
+    <hr />
+    @Html.ValidationSummary("")
+    <div class="form-group">
+        @Html.LabelFor(m => m.Number)
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Number)
+        </div>
+    </div>
+    <div>
+        <div>
+            <input type="submit" value="Send verification code" />
+        </div>
+    </div>
+} 
